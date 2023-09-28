@@ -1,10 +1,37 @@
 # My Personal Project
 
-## A subtitle
+## A Cookbook (A Recipe Hub)
 
-A *bulleted* list:
-- item 1
-- item 2
-- item 3
+The web application is a cookbook which will contain recipes allowing users 
+to view the recipes or to add their own recipes. This application conveniently 
+organizes the recipes in different cuisines and different cooking methods. 
+Also, the application will allow users to enter the ingredients they wish 
+to cook with and they will be matched  with recipe(s) that requires the 
+least amount of additional ingredients. Moreover, the application will 
+allow users to determine the popularity of a recipe through ratings 
+which will be provided with each. 
 
-An example of text with **bold** and *italic* fonts.  
+There are two main categories of users for this application:
+
+**1. Those looking for a new recipe**
+
+**2. Those wanting to share a recipe**
+
+The application will particularly appeal to those wanting to try out new recipes with their commonly used ingredients but also appeals
+to those just looking for a recipe or cooking enthusiasts wanting to share their 
+recipes with others. This application is of particular interest to me, as a student,
+who is living independently away from home and looking for ways to creatively 
+utilize the ingredients and to break the food monotony. 
+
+
+## User Stories
+
+- *As a user, I want to be able to add a recipe to the cookbook with the name, 
+a corresponding image, category, preparation time, list of ingredients and 
+step-by-step instructions*
+- *As a user, I want to be able to view the list of recipes in the cookbook*
+- *As a user, I want to be able to delete a recipe that I have added to the cookbook*
+- *As a user, I want to be able to mark a recipe as saved for later*
+- *As a user, I want to be able to provide a rating to a recipe*
+- *As a user, I want to be able to add the current ingredients I have in my ingredients class*
+
