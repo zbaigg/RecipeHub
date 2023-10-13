@@ -23,9 +23,11 @@ public class Recipe {
 
     // EFFECTS: Returns recipe name and ID
     public String getInfo() {
-        String nameDescription = "Name " + this.getName() + "\n";
-        String timeDescription = "This recipe takes " + this.getTime() + "\n";
-        String categoryDescription = "The category this recipe belongs to is " + this.getCategory() + "\n";
+        String nameDesc = "Name " + this.getName() + "\n";
+        String idDesc = "Id " + this.getRecipeId() + "\n";
+        String nameAndId = nameDesc + idDesc;
+        String timeDesc = "This recipe takes " + this.getTime() + "\n";
+        String categoryDesc = "The category this recipe belongs to is " + this.getCategory() + "\n";
         StringBuilder ingredientsDescription = new StringBuilder();
         ingredientsDescription.append("The ingredients are: ");
         for (String ingredient : this.getIngredients()) {
@@ -39,7 +41,7 @@ public class Recipe {
             directionsDescription.append(step);
             directionsDescription.append("\n");
         }
-        return nameDescription + timeDescription + categoryDescription + ingredientsDescription + directionsDescription;
+        return nameAndId + timeDesc + categoryDesc + ingredientsDescription + directionsDescription;
     }
 
     // EFFECTS: Checks and returns boolean to show if the recipe is possible to make with available ingredients
