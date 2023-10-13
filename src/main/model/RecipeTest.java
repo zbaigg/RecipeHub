@@ -56,7 +56,10 @@ public class RecipeTest {
         String nameDescription = "Name Hot Chocolate\n";
         String timeDescription = "This recipe takes 45 minutes\n";
         String categoryDescription = "The category this recipe belongs to is baking\n";
-        String expectedOutput = nameDescription + timeDescription + categoryDescription;
+        String ingredientsDescription = "The ingredients are: Cocoa powder Milk Vanilla Essence ";
+        String directionsDescription = "The steps are: Boil Milk\nAdd Cocoa Powder\nStir the mixture\n";
+        String ingredientsAndDirections = ingredientsDescription + directionsDescription;
+        String expectedOutput = nameDescription + timeDescription + categoryDescription + ingredientsAndDirections;
         assertEquals(expectedOutput, recipe.getInfo());
     }
 

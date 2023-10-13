@@ -26,8 +26,20 @@ public class Recipe {
         String nameDescription = "Name " + this.getName() + "\n";
         String timeDescription = "This recipe takes " + this.getTime() + "\n";
         String categoryDescription = "The category this recipe belongs to is " + this.getCategory() + "\n";
+        StringBuilder ingredientsDescription = new StringBuilder();
+        ingredientsDescription.append("The ingredients are: ");
+        for (String ingredient : this.ingredients) {
+            ingredientsDescription.append(ingredient);
+            ingredientsDescription.append(" ");
+        }
 
-        return nameDescription + timeDescription + categoryDescription;
+        StringBuilder directionsDescription = new StringBuilder();
+        directionsDescription.append("The steps are: ");
+        for (String step : this.directions) {
+            directionsDescription.append(step);
+            directionsDescription.append("\n");
+        }
+        return nameDescription + timeDescription + categoryDescription + ingredientsDescription + directionsDescription;
     }
 
     // EFFECTS: Checks and returns boolean to show if the recipe is possible to make with available ingredients
