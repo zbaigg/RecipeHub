@@ -2,6 +2,9 @@ package model;
 
 import java.util.List;
 
+//This class stores information for a recipe such as name, ingredients, directions etc.
+//Exposes functionality to get the difficulty level of a recipe,
+//and checks if this recipe can be made with the available ingredients
 public class Recipe {
     private static int recipeCount = 0;
     private final int recipeId;

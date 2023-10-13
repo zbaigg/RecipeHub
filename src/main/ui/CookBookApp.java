@@ -7,6 +7,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+//This class represents the CookBook of all the recipes,
+//exposes functionality for user to add, delete, and view recipes. It also
+//allows user to check the difficulty of the recipe and
+//allows users to view all the recipes that they can make with the ingredients they have
 public class CookBookApp {
     List<Recipe> recipes;
     private final Scanner input;
