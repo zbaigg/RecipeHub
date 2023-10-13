@@ -53,9 +53,11 @@ public class RecipeTest {
 
     @Test
     void testGetInfo() {
-        String info = "Name: " + "Hot Chocolate" + "\t\t\t" + "Id : " + "1" + "\n";
-
-        assertEquals(info, recipe.getInfo());
+        String nameDescription = "Name Hot Chocolate\n";
+        String timeDescription = "This recipe takes 45 minutes\n";
+        String categoryDescription = "The category this recipe belongs to is baking\n";
+        String expectedOutput = nameDescription + timeDescription + categoryDescription;
+        assertEquals(expectedOutput, recipe.getInfo());
     }
 
 }

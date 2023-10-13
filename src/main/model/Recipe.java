@@ -23,7 +23,11 @@ public class Recipe {
 
     // EFFECTS: Returns recipe name and ID
     public String getInfo() {
-        return "Name: " + this.getName() + "\t\t\t" + "Id : " + this.getRecipeId() + "\n";
+        String nameDescription = "Name " + this.getName() + "\n";
+        String timeDescription = "This recipe takes " + this.getTime() + "\n";
+        String categoryDescription = "The category this recipe belongs to is " + this.getCategory() + "\n";
+
+        return nameDescription + timeDescription + categoryDescription;
     }
 
     // EFFECTS: Checks and returns boolean to show if the recipe is possible to make with available ingredients
