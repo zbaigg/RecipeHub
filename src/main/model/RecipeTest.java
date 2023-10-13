@@ -60,4 +60,63 @@ public class RecipeTest {
         assertEquals(expectedOutput, recipe.getInfo());
     }
 
+    @Test
+    void testGetDifficultyEasy() {
+        List<String> ingredients = new ArrayList<>();
+        ingredients.add("Cocoa powder");
+        ingredients.add("Milk");
+        ingredients.add("Vanilla Essence");
+        List<String> directions = new ArrayList<>();
+        directions.add("Boil Milk");
+        directions.add("Add Cocoa Powder");
+        directions.add("Stir the mixture");
+        recipe = new Recipe("Hot Chocolate",directions, "45 minutes", ingredients, "baking");
+        assertEquals("EASY", recipe.getDifficultyLevel());
+    }
+
+    @Test
+    void testGetDifficultyDifficult() {
+        List<String> ingredients = new ArrayList<>();
+        ingredients.add("Cocoa powder");
+        ingredients.add("Milk");
+        ingredients.add("Vanilla Essence");
+        ingredients.add("Eggs");
+        List<String> directions = new ArrayList<>();
+        directions.add("Add milk to a bowl");
+        directions.add("Add cocoa powder");
+        directions.add("Stir the mixture");
+        directions.add("Add eggs");
+        directions.add("Add heavy cream");
+        directions.add("Stir the mixture");
+        directions.add("Add vanilla essence");
+        directions.add("Bake for 20 minutes");
+        directions.add("Cool down for 15 minutes before serving");
+
+
+        recipe = new Recipe("Chocolate Cake",directions, "60 minutes", ingredients, "baking");
+        assertEquals("DIFFICULT", recipe.getDifficultyLevel());
+    }
+
+    @Test
+    void testGetDifficultyIntermediate() {
+        List<String> ingredients = new ArrayList<>();
+        ingredients.add("Eggs");
+        ingredients.add("Milk");
+        ingredients.add("Salt");
+        ingredients.add("Pepper");
+        ingredients.add("Butter");
+        List<String> directions = new ArrayList<>();
+        directions.add("Heat the butter");
+        directions.add("Add eggs");
+        directions.add("Scramble the eggs");
+        directions.add("Add milk");
+        directions.add("Add salt and pepper");
+        directions.add("Let it simmer for 5 minutes before serving");
+
+
+        recipe = new Recipe("Scramble Eggs",directions, "10 minutes", ingredients, "cooking");
+        assertEquals("INTERMEDIATE", recipe.getDifficultyLevel());
+    }
+
+
 }

@@ -35,6 +35,16 @@ public class Recipe {
         return givenIngredients.containsAll(this.ingredients);
     }
 
+    public String getDifficultyLevel() {
+        if (this.directions.size() > 8) {
+            return "DIFFICULT";
+        } else if (this.directions.size() < 4) {
+            return "EASY";
+        }
+
+        return "INTERMEDIATE";
+    }
+
 
     public String getName() {
         return name;
