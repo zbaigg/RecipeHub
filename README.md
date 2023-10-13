@@ -6,7 +6,7 @@ The web application is a cookbook which will contain recipes allowing users
 to view the recipes or to add their own recipes. This application conveniently 
 organizes the recipes in different cuisines and different cooking methods. 
 Also, the application will allow users to enter the ingredients they wish 
-to cook with and they will be matched  with recipe(s) that requires the 
+to cook with, and they will be matched  with recipe(s) that requires the 
 least amount of additional ingredients. Moreover, the application will 
 allow users to determine the popularity of a recipe through ratings 
 which will be provided with each. 
