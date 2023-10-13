@@ -27,11 +27,11 @@ utilize the ingredients and to break the food monotony.
 ## User Stories
 
 - *As a user, I want to be able to add a recipe to the cookbook with the name, 
-a corresponding image, category, preparation time, list of ingredients and 
+ category, preparation time, list of ingredients and 
 step-by-step instructions*
 - *As a user, I want to be able to view the list of recipes in the cookbook*
 - *As a user, I want to be able to delete a recipe that I have added to the cookbook*
+- *As a user, I want to be able to get a list of recipes that I can make with a given list of ingredients*
 - *As a user, I want to be able to mark a recipe as saved for later*
 - *As a user, I want to be able to provide a rating to a recipe*
-- *As a user, I want to be able to add the current ingredients I have in my ingredients class*
 
