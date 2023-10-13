@@ -184,6 +184,10 @@ public class CookBookApp {
 
     // EFFECTS: Prints the recipe information
     public void printRecipe(Recipe recipe) {
+        if (recipe == null) {
+            System.out.println("The recipe name you entered is not valid");
+            return;
+        }
         System.out.println("Recipe Name: " + recipe.getName());
         System.out.println("Recipe category: " + recipe.getCategory());
         System.out.println("Recipe time: " + recipe.getTime());
