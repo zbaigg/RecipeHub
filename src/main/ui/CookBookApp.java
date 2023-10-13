@@ -43,6 +43,7 @@ public class CookBookApp {
         System.out.println("\nSelect from:");
         System.out.println("\ts -> show all recipes");
         System.out.println("\ta -> add recipe");
+        System.out.println("\td -> delete a recipe");
         System.out.println("\tc -> choose a particular recipe by id");
         System.out.println("\tn -> choose a particular recipe by name");
         System.out.println("\tp -> Get a list of the recipes based on the list of ingredients you have");
@@ -60,6 +61,8 @@ public class CookBookApp {
             this.printRecipe(recipe);
         } else if (command.equals("a")) {
             this.addRecipeUi();
+        } else if (command.equals("d")) {
+            this.deleteRecipe();
         } else if (command.equals("n")) {
             System.out.println("\tEnter recipe name:");
             command = input.next().toLowerCase();
@@ -190,5 +193,12 @@ public class CookBookApp {
         for (String step: recipe.getDirections()) {
             System.out.println(step);
         }
+    }
+
+    public void deleteRecipe() {
+        System.out.println("Enter the id of the recipe you would like to delete: ");
+        String recipeId = this.getInput();
+        Recipe recipe = this.getRecipeById(Integer.parseInt(recipeId));
+        this.recipes.remove(recipe);
     }
 }
