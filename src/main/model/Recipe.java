@@ -28,14 +28,14 @@ public class Recipe {
         String categoryDescription = "The category this recipe belongs to is " + this.getCategory() + "\n";
         StringBuilder ingredientsDescription = new StringBuilder();
         ingredientsDescription.append("The ingredients are: ");
-        for (String ingredient : this.ingredients) {
+        for (String ingredient : this.getIngredients()) {
             ingredientsDescription.append(ingredient);
             ingredientsDescription.append(" ");
         }
 
         StringBuilder directionsDescription = new StringBuilder();
         directionsDescription.append("The steps are: ");
-        for (String step : this.directions) {
+        for (String step : this.getDirections()) {
             directionsDescription.append(step);
             directionsDescription.append("\n");
         }
