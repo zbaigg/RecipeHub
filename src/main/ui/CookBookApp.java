@@ -154,7 +154,7 @@ public class CookBookApp {
         return null;
     }
 
-    // EFFECTS: Fetches the recipe by the reciped ID
+    // EFFECTS: Fetches the recipe by the recipe ID
     public Recipe getRecipeById(int recipeId) {
         for (Recipe recipeObj: this.recipes) {
             if (recipeObj.getRecipeId() == recipeId) {
@@ -184,6 +184,7 @@ public class CookBookApp {
         for (String ingredient: recipe.getIngredients()) {
             System.out.println(ingredient);
         }
+
         System.out.println("\n");
         System.out.println("Step by step instructions:");
 
