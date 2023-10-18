@@ -62,7 +62,6 @@ public class Recipe {
         return "INTERMEDIATE";
     }
 
-
     public String getName() {
         return name;
     }

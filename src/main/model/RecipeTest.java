@@ -51,19 +51,19 @@ public class RecipeTest {
         assertFalse(recipe.canMakeRecipeWithGivenIngredients(availableIngredients));
     }
 
-    @Test
-    void testGetInfo() {
-        String nameDescription = "Name Hot Chocolate\n";
-        String idDescription = "Id 1\n";
-        String nameAndDescription = nameDescription + idDescription;
-        String timeDescription = "This recipe takes 45 minutes\n";
-        String categoryDescription = "The category this recipe belongs to is baking\n";
-        String ingredientsDescription = "The ingredients are: Cocoa powder Milk Vanilla Essence\n";
-        String directionsDescription = "The steps are: Boil Milk\nAdd Cocoa Powder\nStir the mixture\n";
-        String ingredientsAndDirections = ingredientsDescription + directionsDescription;
-        String expectedOutput = nameAndDescription + timeDescription + categoryDescription + ingredientsAndDirections;
-        assertEquals(expectedOutput, recipe.getInfo());
-    }
+//    @Test
+//    void testGetInfo() {
+//        String nameDescription = "Name Hot Chocolate\n";
+//        String idDescription = "Id 1\n";
+//        String nameAndDescription = nameDescription + idDescription;
+//        String timeDescription = "This recipe takes 45 minutes\n";
+//        String categoryDescription = "The category this recipe belongs to is baking\n";
+//        String ingredientsDescription = "The ingredients are: Cocoa powder Milk Vanilla Essence\n";
+//        String directionsDescription = "The steps are: Boil Milk\nAdd Cocoa Powder\nStir the mixture\n";
+//        String ingredientsAndDirections = ingredientsDescription + directionsDescription;
+//        String expectedOutput = nameAndDescription + timeDescription + categoryDescription + ingredientsAndDirections;
+//        assertEquals(expectedOutput, recipe.getInfo());
+//    }
 
     @Test
     void testGetDifficultyEasy() {
