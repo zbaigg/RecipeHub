@@ -39,7 +39,7 @@ public class Recipe {
         }
 
         StringBuilder directionsDescription = new StringBuilder();
-        directionsDescription.append("The steps are: ");
+        directionsDescription.append("\n" + "The steps are: ");
         for (String step : this.getDirections()) {
             directionsDescription.append(step);
             directionsDescription.append("\n");
