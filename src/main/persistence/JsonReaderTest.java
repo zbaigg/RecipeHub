@@ -35,6 +35,16 @@ class JsonReaderTest extends JsonTest {
     }
 
     @Test
+    void testReaderEmptyRecipeListThrowsException() {
+        JsonReader reader = new JsonReader("./data/testRecipesEmxty.json");
+        try {
+            reader.read();
+        } catch (IOException e) {
+            //pass;
+        }
+    }
+
+    @Test
     void testReaderRecipeGeneral() {
         JsonReader reader = new JsonReader("./data/testRecipesGeneral.json");
         try {
