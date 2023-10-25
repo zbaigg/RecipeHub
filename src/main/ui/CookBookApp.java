@@ -5,8 +5,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import persistence.JsonWriter;
 import persistence.Writable;
+import persistence.JsonReader;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -21,6 +23,7 @@ public class CookBookApp implements Writable {
     List<Recipe> recipes;
     private final Scanner input;
     private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
 
     public CookBookApp() {
@@ -28,6 +31,8 @@ public class CookBookApp implements Writable {
         input = new Scanner(System.in);
         input.useDelimiter("\n");
         this.jsonWriter = new JsonWriter(JSON_STORE);
+        this.jsonReader = new JsonReader(JSON_STORE);
+
         runCookBookApp();
     }
 
@@ -60,6 +65,7 @@ public class CookBookApp implements Writable {
         System.out.println("\tn -> choose a particular recipe by name");
         System.out.println("\tp -> Get a list of the recipes based on the list of ingredients you have");
         System.out.println("\tf -> save recipes to file");
+        System.out.println("\tl -> load recipes from file");
         System.out.println("\tq -> quit");
     }
 
@@ -83,10 +89,19 @@ public class CookBookApp implements Writable {
             this.printRecipe(recipe);
         } else if (command.equals("p")) {
             this.getRecipesWithGivenIngredients();
-        } else if (command.equals("f")) {
-            saveRecipeList();
+        } else if (command.equals("f") || command.equals("l")) {
+            this.handleSaveAndLoadCommands(command);
         } else {
             System.out.println("Selection not valid...");
+        }
+    }
+
+    private void handleSaveAndLoadCommands(String command) {
+        if (command.equals("f")) {
+            saveRecipeList();
+        } else if (command.equals("l")) {
+            loadRecipeList();
+
         }
     }
 
@@ -101,6 +116,18 @@ public class CookBookApp implements Writable {
             System.out.println("Unable to write to file: " + JSON_STORE);
         }
     }
+
+    // MODIFIES: this
+    // EFFECTS: loads workroom from file
+    private void loadRecipeList() {
+        try {
+            this.recipes = jsonReader.read();
+            System.out.println("Loaded from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
+    }
+
 
     // EFFECTS: Prompts user to enter the list of ingredients
     // they have and then the system prints all the recipes that the user can make
@@ -250,4 +277,6 @@ public class CookBookApp implements Writable {
 
         return jsonArray;
     }
+
+
 }
