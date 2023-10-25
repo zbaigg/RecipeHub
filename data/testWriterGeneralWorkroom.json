@@ -1,0 +1,17 @@
+{
+    "recipes": [{
+        "directions": [
+            "step 1",
+            "step 2"
+        ],
+        "name": "Hot chocolate",
+        "ingredients": [
+            "cocoa",
+            "milk"
+        ],
+        "time": "5 mins",
+        "category": "microwaveable",
+        "recipeId": 1277
+    }],
+    "name": "recipeList"
+}
