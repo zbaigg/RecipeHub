@@ -26,14 +26,16 @@ public class CookBookApp implements Writable {
     private JsonReader jsonReader;
 
 
-    public CookBookApp() {
+    public CookBookApp(Boolean isTestingMode) {
         this.recipes = new ArrayList<>();
         input = new Scanner(System.in);
         input.useDelimiter("\n");
         this.jsonWriter = new JsonWriter(JSON_STORE);
         this.jsonReader = new JsonReader(JSON_STORE);
 
-        runCookBookApp();
+        if (!isTestingMode) {
+            runCookBookApp();
+        }
     }
 
     // EFFECTS: allows user to interact with the application
