@@ -91,7 +91,7 @@ public class CookBookApp {
             }
         }
 
-        System.out.println("You have all the required ingredients for the following recipes\n");
+        System.out.println("You have all the required ingredients for the following recipes:\n");
         for (Recipe recipe: possibleRecipes) {
             System.out.println(recipe.getInfo());
         }
@@ -150,7 +150,7 @@ public class CookBookApp {
         this.recipes.add(newRecipe);
     }
 
-    // EFFECTS: Prompts user to add a new recipe
+    // EFFECTS: Fetches the recipe by the recipe name
     public Recipe getRecipeByName(String name) {
         for (Recipe recipeObj: this.recipes) {
             if (recipeObj.getName().equals(name)) {
@@ -161,7 +161,7 @@ public class CookBookApp {
         return null;
     }
 
-    // EFFECTS: Fetches the recipe by the reciped ID
+    // EFFECTS: Fetches the recipe by the recipe ID
     public Recipe getRecipeById(int recipeId) {
         for (Recipe recipeObj: this.recipes) {
             if (recipeObj.getRecipeId() == recipeId) {
@@ -191,11 +191,10 @@ public class CookBookApp {
         System.out.println("Recipe Name: " + recipe.getName());
         System.out.println("Recipe category: " + recipe.getCategory());
         System.out.println("Recipe time: " + recipe.getTime());
-        System.out.println("Ingredients required are listed below ");
+        System.out.println("Ingredients required: ");
         for (String ingredient: recipe.getIngredients()) {
             System.out.println(ingredient);
         }
-        System.out.println("\n");
         System.out.println("Step by step instructions:");
 
         for (String step: recipe.getDirections()) {

@@ -1,12 +1,12 @@
 package model;
 
 import java.util.List;
+import java.util.Random;
 
 //This class stores information for a recipe such as name, ingredients, directions etc.
 //Exposes functionality to get the difficulty level of a recipe,
 //and checks if this recipe can be made with the available ingredients
 public class Recipe {
-    private static int recipeCount = 0;
     private final int recipeId;
     private final String name;
     private final List<String> directions;
@@ -15,13 +15,17 @@ public class Recipe {
     private final String category;
 
     public Recipe(String name, List<String> directions, String time, List<String> ingredients, String category) {
-        this.recipeId = Recipe.recipeCount + 1;
+        int asciiSum = 0;
+        char[] characters = name.toCharArray();
+        for (char c: characters) {
+            asciiSum = asciiSum + (int)c;
+        }
+        this.recipeId = asciiSum;
         this.name = name;
         this.directions = directions;
         this.time = time;
         this.ingredients = ingredients;
         this.category = category;
-        Recipe.recipeCount = Recipe.recipeCount + 1;
     }
 
     // EFFECTS: Returns recipe name and ID
@@ -52,13 +56,13 @@ public class Recipe {
         return givenIngredients.containsAll(this.ingredients);
     }
 
+    //EFFECTS: Checks the size of the directions and returns the corresponding difficulty level
     public String getDifficultyLevel() {
         if (this.directions.size() > 8) {
             return "DIFFICULT";
         } else if (this.directions.size() < 4) {
             return "EASY";
         }
-
         return "INTERMEDIATE";
     }
 
