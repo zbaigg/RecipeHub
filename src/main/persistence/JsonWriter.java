@@ -1,11 +1,11 @@
+//Source: This class is adapted from the JsonWriter class in the JsonSerializationDemo file.
+
 package persistence;
 
-import model.Recipe;
 import org.json.JSONObject;
 import java.io.*;
-import java.util.List;
 
-// Represents a writer that writes JSON representation of workroom to file
+// This class represents a writer that writes JSON representation of recipes to file
 public class JsonWriter {
     private static final int TAB = 4;
     private PrintWriter writer;
@@ -13,6 +13,7 @@ public class JsonWriter {
 
     // EFFECTS: constructs writer to write to destination file
     public JsonWriter(String destination) {
+
         this.destination = destination;
     }
 
@@ -20,24 +21,27 @@ public class JsonWriter {
     // EFFECTS: opens writer; throws FileNotFoundException if destination file cannot
     // be opened for writing
     public void open() throws FileNotFoundException {
+
         writer = new PrintWriter(new File(destination));
     }
 
-    // MODIFIES: this
-    // EFFECTS: writes JSON representation of workroom to file
+    // EFFECTS: writes JSON representation of recipes to file
     public void write(JSONObject recipeJson) {
+
         saveToFile(recipeJson.toString(TAB));
     }
 
     // MODIFIES: this
     // EFFECTS: closes writer
     public void close() {
+
         writer.close();
     }
 
     // MODIFIES: this
     // EFFECTS: writes string to file
     private void saveToFile(String json) {
+
         writer.print(json);
     }
 }

@@ -1,3 +1,5 @@
+//Source: This class is adapted from the JsonReader class in the JsonSerializationDemo file.
+
 package persistence;
 
 import model.Recipe;
@@ -12,7 +14,7 @@ import java.util.List;
 
 import org.json.*;
 
-// Represents a reader that reads workroom from JSON data stored in file
+//This class represents a reader that reads recipes from JSON data stored in file
 public class JsonReader {
     private String source;
 
@@ -21,7 +23,7 @@ public class JsonReader {
         this.source = source;
     }
 
-    // EFFECTS: reads workroom from file and returns it;
+    // EFFECTS: reads recipes from file and returns it;
     // throws IOException if an error occurs reading data from file
     public List<Recipe> read() throws IOException {
         String jsonData = readFile(source);
@@ -40,13 +42,12 @@ public class JsonReader {
         return contentBuilder.toString();
     }
 
-    // EFFECTS: parses workroom from JSON object and returns it
+    // EFFECTS: parses recipes from JSON object and returns it
     private List<Recipe> parseRecipeList(JSONObject jsonObject) {
         return getRecipesList(jsonObject);
     }
 
-    // MODIFIES: wr
-    // EFFECTS: parses recipes from JSON object and adds them to recipeList
+    // EFFECTS: parses recipes from JSON object and returns them
     private List<Recipe> getRecipesList(JSONObject jsonObject) {
         JSONArray jsonArray = jsonObject.getJSONArray("recipes");
         List<Recipe> savedRecipes = new ArrayList<>();
@@ -57,8 +58,7 @@ public class JsonReader {
         return savedRecipes;
     }
 
-    // MODIFIES: wr
-    // EFFECTS: parses thingy from JSON object and adds it to workroom
+    // EFFECTS: parses recipe from JSON object and returns it
     private Recipe getRecipe(JSONObject jsonObject) {
         String name = jsonObject.getString("name");
         JSONArray directionsJson = jsonObject.getJSONArray("directions");

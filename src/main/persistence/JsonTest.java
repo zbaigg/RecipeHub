@@ -1,3 +1,5 @@
+//Source: This class is adapted from the JsonTest class in the JsonSerializationDemo file.
+
 package persistence;
 
 import model.Recipe;

@@ -1,3 +1,5 @@
+//Source: This class is adapted from the Writable interface in the JsonSerializationDemo file.
+
 package persistence;
 
 import org.json.JSONObject;

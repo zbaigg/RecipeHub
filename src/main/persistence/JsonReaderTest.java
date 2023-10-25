@@ -1,3 +1,5 @@
+//Source: This class is adapted from the JsonReaderTest class in the JsonSerializationDemo file.
+
 package persistence;
 
 import model.Recipe;

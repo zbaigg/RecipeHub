@@ -123,13 +123,12 @@ public class CookBookApp implements Writable {
     // EFFECTS: loads workroom from file
     private void loadRecipeList() {
         try {
-            this.recipes = jsonReader.read();
+            this.recipes.addAll(jsonReader.read());
             System.out.println("Loaded from " + JSON_STORE);
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + JSON_STORE);
         }
     }
-
 
     // EFFECTS: Prompts user to enter the list of ingredients
     // they have and then the system prints all the recipes that the user can make

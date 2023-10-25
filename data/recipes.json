@@ -1,11 +1,21 @@
 {
-    "recipes": [{
-        "directions": ["1"],
-        "name": "1",
-        "ingredients": ["1"],
-        "time": "1",
-        "category": "1",
-        "recipeId": 49
-    }],
+    "recipes": [
+        {
+            "directions": ["1"],
+            "name": "1",
+            "ingredients": ["1"],
+            "time": "1",
+            "category": "1",
+            "recipeId": 49
+        },
+        {
+            "directions": ["2"],
+            "name": "2",
+            "ingredients": ["2"],
+            "time": "2",
+            "category": "2",
+            "recipeId": 50
+        }
+    ],
     "name": "recipeList"
 }
