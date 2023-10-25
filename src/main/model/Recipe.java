@@ -1,12 +1,15 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.List;
 import java.util.Random;
 
 //This class stores information for a recipe such as name, ingredients, directions etc.
 //Exposes functionality to get the difficulty level of a recipe,
 //and checks if this recipe can be made with the available ingredients
-public class Recipe {
+public class Recipe implements Writable {
     private final int recipeId;
     private final String name;
     private final List<String> directions;
@@ -64,6 +67,18 @@ public class Recipe {
             return "EASY";
         }
         return "INTERMEDIATE";
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("recipeId", recipeId);
+        json.put("name", name);
+        json.put("directions", directions);
+        json.put("time", time);
+        json.put("ingredients", ingredients);
+        json.put("category", category);
+        return json;
     }
 
     public String getName() {

@@ -1,7 +1,12 @@
 package ui;
 
 import model.Recipe;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.JsonWriter;
+import persistence.Writable;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -11,14 +16,18 @@ import java.util.Scanner;
 //exposes functionality for user to add, delete, and view recipes. It also
 //allows user to check the difficulty of the recipe and
 //allows users to view all the recipes that they can make with the ingredients they have
-public class CookBookApp {
+public class CookBookApp implements Writable {
+    private static final String JSON_STORE = "./data/recipes.json";
     List<Recipe> recipes;
     private final Scanner input;
+    private JsonWriter jsonWriter;
+
 
     public CookBookApp() {
         this.recipes = new ArrayList<>();
         input = new Scanner(System.in);
         input.useDelimiter("\n");
+        this.jsonWriter = new JsonWriter(JSON_STORE);
         runCookBookApp();
     }
 
@@ -26,7 +35,6 @@ public class CookBookApp {
     private void runCookBookApp() {
         boolean keepGoing = true;
         String command;
-
         while (keepGoing) {
             displayMenu();
             command = input.next();
@@ -51,6 +59,7 @@ public class CookBookApp {
         System.out.println("\tc -> choose a particular recipe by id");
         System.out.println("\tn -> choose a particular recipe by name");
         System.out.println("\tp -> Get a list of the recipes based on the list of ingredients you have");
+        System.out.println("\tf -> save recipes to file");
         System.out.println("\tq -> quit");
     }
 
@@ -74,8 +83,22 @@ public class CookBookApp {
             this.printRecipe(recipe);
         } else if (command.equals("p")) {
             this.getRecipesWithGivenIngredients();
+        } else if (command.equals("f")) {
+            saveRecipeList();
         } else {
             System.out.println("Selection not valid...");
+        }
+    }
+
+    // EFFECTS: saves the recipes to file
+    private void saveRecipeList() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(this.toJson());
+            jsonWriter.close();
+            System.out.println("Saved the recipes to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
         }
     }
 
@@ -207,5 +230,24 @@ public class CookBookApp {
         String recipeId = this.getInput();
         Recipe recipe = this.getRecipeById(Integer.parseInt(recipeId));
         this.recipes.remove(recipe);
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", "recipeList");
+        json.put("recipes", recipesToJson());
+        return json;
+    }
+
+    // EFFECTS: returns the recipes in the recipeList as a JSON array
+    private JSONArray recipesToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Recipe r : this.recipes) {
+            jsonArray.put(r.toJson());
+        }
+
+        return jsonArray;
     }
 }
