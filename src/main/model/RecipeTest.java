@@ -126,7 +126,7 @@ public class RecipeTest {
     }
 
     @Test
-    void testEqualsOneRecipe() {
+    void testEqualsIsTrue() {
         List<String> ingredients = new ArrayList<>();
         ingredients.add("Cocoa powder");
         ingredients.add("Milk");
@@ -140,7 +140,7 @@ public class RecipeTest {
     }
 
     @Test
-    void testEqualsTwoUnequalRecipes() {
+    void testEqualsIsFalse() {
         List<String> ingredients = new ArrayList<>();
         ingredients.add("Cocoa powder");
         ingredients.add("Milk");
@@ -155,7 +155,7 @@ public class RecipeTest {
     }
 
     @Test
-    void testEqualsThreeRecipes() {
+    void testEqualsIsFalseInstanceType() {
         List<String> ingredients = new ArrayList<>();
         ingredients.add("Cocoa powder");
         ingredients.add("Milk");
@@ -166,6 +166,21 @@ public class RecipeTest {
         directions.add("Stir the mixture");
         recipe = new Recipe("Hot Chocolate",directions, "45 minutes", ingredients, "baking");
         assertFalse(recipe.equals(new ArrayList<Recipe>()));
+    }
+
+    @Test
+    void testEqualsIsTrueSameRecipeId() {
+        List<String> ingredients = new ArrayList<>();
+        ingredients.add("Cocoa powder");
+        ingredients.add("Milk");
+        ingredients.add("Vanilla Essence");
+        List<String> directions = new ArrayList<>();
+        directions.add("Boil Milk");
+        directions.add("Add Cocoa Powder");
+        directions.add("Stir the mixture");
+        recipe = new Recipe("Hot Chocolate",directions, "45 minutes", ingredients, "baking");
+        Recipe recipe2 = new Recipe("Hot Chocolate",directions, "45 minutes", ingredients, "baking");
+        assertTrue(recipe.equals(recipe2));
     }
 
 }
