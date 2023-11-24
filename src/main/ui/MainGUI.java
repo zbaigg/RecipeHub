@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
 
+//This class represents the graphical user interface of the CookBook application,
+//exposes functionality for user to add, filter by difficulty, save and load the recipe.
+//It also allows users to view all the recipes that have been added
 public class MainGUI {
     private JFrame frame;
     private JPanel inputPanel;
@@ -53,6 +56,7 @@ public class MainGUI {
         setFrameProperties();
     }
 
+    // EFFECTS: allows user to enter the recipe information
     private void addRecipeForm() {
         recipeNameLabel = new JLabel("What is the name of the recipe?");
         recipeStepsLabel = new JLabel("Enter the steps for the recipe (separated by comma): ");
@@ -77,7 +81,8 @@ public class MainGUI {
         inputPanel.add(recipeIngredientsText);
 
     }
-    
+
+    // EFFECTS: creates an Action Listener on the 'Add recipe' button, allowing users to add the recipes
     private void addRecipeButtonListener() {
         addRecipeButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -106,6 +111,7 @@ public class MainGUI {
         
     }
 
+    // EFFECTS: creates an Action Listener on 'Save Recipe', 'Show Recipe', 'Show Easy Recipes' buttons
     private void addButtonListeners() {
         saveButton.addActionListener(new ActionListener() {
             @Override
@@ -133,6 +139,7 @@ public class MainGUI {
         });
     }
 
+    // EFFECTS: displays the buttons on the screen
     private void addButtonPanel() {
         JPanel buttonPanel = new JPanel();
         addRecipeButton = new JButton("Add recipe");
@@ -148,6 +155,7 @@ public class MainGUI {
 
     }
 
+    // EFFECTS: displays a panel on the right hand side of the screen to display recipes
     private void addDisplayPanel() {
         displayLabel = new JLabel("Recipe Information:");
         displayTextArea = new JTextArea();
@@ -164,6 +172,7 @@ public class MainGUI {
         displayScrollPane.setPreferredSize(new Dimension(600, displayScrollPane.getHeight()));
     }
 
+    // EFFECTS: sets the frame-related information
     private void setFrameProperties() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Recipe Cookbook App");
@@ -172,6 +181,7 @@ public class MainGUI {
         frame.setResizable(true);
     }
 
+    // EFFECTS: renders the recipes on the screen
     private void displayRecipes(List<Recipe> recipes) {
         displayTextArea.setText("");
 
@@ -192,11 +202,13 @@ public class MainGUI {
         }
     }
 
+    // EFFECTS: adds a recipe to the app
     private void addRecipeToApp(String name, List<String> dir, String time, List<String> ingList, String category) {
 
         app.addRecipe(name, dir, time, ingList, category);
     }
 
+    // EFFECTS: clears the input fields
     private void clearInputFields() {
         recipeNameText.setText("");
         recipeStepsText.setText("");
@@ -205,6 +217,7 @@ public class MainGUI {
         recipeIngredientsText.setText("");
     }
 
+    // EFFECTS: creates image icon
     private static ImageIcon createImageIcon(String path) {
         java.net.URL imgURL = MainGUI.class.getResource(path);
 
@@ -218,7 +231,8 @@ public class MainGUI {
         }
     }
 
+    // EFFECTS: creates an image icon
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new MainGUI());
+        new MainGUI();
     }
 }
