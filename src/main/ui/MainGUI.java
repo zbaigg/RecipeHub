@@ -1,3 +1,13 @@
+//Source: The code image display is sourced from https://docs.oracle.com/javase/8/docs/api/javax/swing/ImageIcon.html
+//Source: The usage of JFrame is sourced from https://www.codejava.net/java-se/swing/jframe-basic-tutorial-and-examples#:~:text=JFrame%20is%20a%20Swing's%20top,application%20starts%20with%20JFrame%20window.
+//Source: The usage of JPanel is sourced from https://docs.oracle.com/javase/8/docs/api/javax/swing/JPanel.html
+//Source: The usage of JScrollPane is sourced from https://docs.oracle.com/javase/8/docs/api/javax/swing/JScrollPane.html
+//Source: The usage of JButton is sourced from https://docs.oracle.com/javase%2F7%2Fdocs%2Fapi%2F%2F/javax/swing/JButton.html
+//Source: The usage of JButton is sourced from https://docs.oracle.com/javase/8/docs/api/javax/swing/JLabel.html
+//Source: The usage of JButton is sourced from https://docs.oracle.com/javase%2F7%2Fdocs%2Fapi%2F%2F/javax/swing/JTextArea.html
+//Source: Used the tutorial titled "Java GUI: Full Course ☕(FREE)" as a starting point. Link: https://www.youtube.com/watch?v=Kmgo00avvEw
+
+
 package ui;
 
 import model.Recipe;
