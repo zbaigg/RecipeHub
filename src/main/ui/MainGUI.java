@@ -5,7 +5,7 @@
 //Source: The usage of JButton is sourced from https://docs.oracle.com/javase%2F7%2Fdocs%2Fapi%2F%2F/javax/swing/JButton.html
 //Source: The usage of JButton is sourced from https://docs.oracle.com/javase/8/docs/api/javax/swing/JLabel.html
 //Source: The usage of JButton is sourced from https://docs.oracle.com/javase%2F7%2Fdocs%2Fapi%2F%2F/javax/swing/JTextArea.html
-//Source: Used the tutorial titled "Java GUI: Full Course ☕(FREE)" as a starting point. Link: https://www.youtube.com/watch?v=Kmgo00avvEw
+//Source: Used the tutorial to implement a GUI:https://www.youtube.com/watch?v=Kmgo00avvEw
 
 
 package ui;
