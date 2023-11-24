@@ -38,3 +38,10 @@ step-by-step instructions*
 - *As a user, I want to be able to save the recipe list to a file*
 - *As a user, I want to be able to load the recipe list from a file*
 
+## Instructions for Grader
+
+- *You can generate the first required action related to the user story "adding multiple Xs to a Y" by pressing the "Add recipe" button 
+- *You can generate the second required action related to the user story "adding multiple Xs to a Y" by pressing the "Show Easy Recipes" button
+- *You can locate my visual component by pressing the "Add recipe" button
+- *You can save the state of my application by pressing the "Save Recipe" button 
+- *You can reload the state of my application by pressing the "Load Recipe" button 
