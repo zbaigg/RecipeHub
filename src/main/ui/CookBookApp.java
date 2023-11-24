@@ -20,11 +20,11 @@ import java.util.Scanner;
 //allows users to view all the recipes that they can make with the ingredients they have
 public class CookBookApp implements Writable {
     private static final String JSON_STORE = "./data/recipes.json";
-    List<Recipe> recipes;
+
+    private List<Recipe> recipes;
     private final Scanner input;
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
-
 
     public CookBookApp(Boolean isTestingMode) {
         this.recipes = new ArrayList<>();
@@ -36,6 +36,10 @@ public class CookBookApp implements Writable {
         if (!isTestingMode) {
             runCookBookApp();
         }
+    }
+
+    public List<Recipe> getRecipes() {
+        return recipes;
     }
 
     // EFFECTS: allows user to interact with the application
@@ -108,7 +112,7 @@ public class CookBookApp implements Writable {
     }
 
     // EFFECTS: saves the recipes to file
-    private void saveRecipeList() {
+    public void saveRecipeList() {
         try {
             jsonWriter.open();
             jsonWriter.write(this.toJson());
@@ -116,12 +120,14 @@ public class CookBookApp implements Writable {
             System.out.println("Saved the recipes to " + JSON_STORE);
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to file: " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
         }
     }
 
     // MODIFIES: this
     // EFFECTS: loads workroom from file
-    private void loadRecipeList() {
+    public void loadRecipeList() {
         try {
             this.recipes.addAll(jsonReader.read());
             System.out.println("Loaded from " + JSON_STORE);
@@ -199,6 +205,17 @@ public class CookBookApp implements Writable {
     public void addRecipe(String name, List<String> directions, String time, List<String> ingList, String category) {
         Recipe newRecipe = new Recipe(name, directions, time, ingList, category);
         this.recipes.add(newRecipe);
+    }
+
+    public List<Recipe> getEasyRecipes() {
+        List<Recipe> easyRecipes = new ArrayList<>();
+        for (Recipe recipeObj: this.recipes) {
+            if (recipeObj.getDifficultyLevel().equals("EASY")) {
+                easyRecipes.add(recipeObj);
+            }
+        }
+
+        return easyRecipes;
     }
 
     // EFFECTS: Fetches the recipe by the recipe name
