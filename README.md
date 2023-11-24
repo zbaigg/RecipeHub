@@ -33,7 +33,8 @@ step-by-step instructions*
 - *As a user, I want to be able to delete a recipe that I have added to the cookbook*
 - *As a user, I want to be able to get a list of recipes that I can make with a given list of ingredients*
 - *As a user, I want to be able to mark a recipe as saved for later*
-- *As a user, I want to be able to provide a rating to a recipe*
+- *As a user, I want to be able to mark a recipe as saved for later*
+- *As a user, I want to be able to filter recipes by difficulty*
 - *As a user, I want to be able to save the recipe list to a file*
 - *As a user, I want to be able to load the recipe list from a file*
 
