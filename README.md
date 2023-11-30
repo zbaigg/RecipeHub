@@ -45,3 +45,29 @@ step-by-step instructions*
 - You can locate my visual component by pressing the "Add recipe" button
 - You can save the state of my application by pressing the "Save Recipe" button 
 - You can reload the state of my application by pressing the "Load Recipe" button 
+
+## Phase 4: Task 2
+
+- You have exited the program!
+- Wed Nov 29 21:30:53 PST 2023
+- Trying to add a new recipe to the list of recipes
+- Wed Nov 29 21:30:53 PST 2023
+- Added a new recipe to the list of recipes
+- Wed Nov 29 21:31:08 PST 2023
+- Trying to add a new recipe to the list of recipes
+- Wed Nov 29 21:31:08 PST 2023
+- Added a new recipe to the list of recipes
+- Wed Nov 29 21:31:17 PST 2023
+- Finding easy recipes from the list of recipes
+- Wed Nov 29 21:31:17 PST 2023
+- Found easy recipes
+- Wed Nov 29 21:31:36 PST 2023
+- Trying to add a new recipe to the list of recipes
+- Wed Nov 29 21:31:36 PST 2023
+- Added a new recipe to the list of recipes
+- Wed Nov 29 21:31:39 PST 2023
+- Loading recipes
+- Wed Nov 29 21:31:43 PST 2023
+- Finding easy recipes from the list of recipes
+- Wed Nov 29 21:31:43 PST 2023
+- Found easy recipes
