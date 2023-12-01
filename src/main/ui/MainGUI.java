@@ -7,8 +7,10 @@
 //Source: The usage of JButton is sourced from https://docs.oracle.com/javase%2F7%2Fdocs%2Fapi%2F%2F/javax/swing/JTextArea.html
 //Source: Used the tutorial to implement a GUI:https://www.youtube.com/watch?v=Kmgo00avvEw
 
-
 package ui;
+
+import model.EventLog;
+import model.Event;
 
 import model.Recipe;
 
@@ -16,6 +18,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
@@ -64,7 +68,18 @@ public class MainGUI {
         addRecipeButtonListener();
         addButtonListeners();
         setFrameProperties();
+
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                // This method will be called when the user clicks the close button
+                printLog(EventLog.getInstance());
+                System.exit(0);
+            }
+        });
+
     }
+
 
     // EFFECTS: allows user to enter the recipe information
     private void addRecipeForm() {
@@ -238,6 +253,13 @@ public class MainGUI {
         } else {
             System.err.println("Couldn't find file: " + path);
             return null;
+        }
+    }
+
+
+    public void printLog(EventLog el) {
+        for (Event next : el) {
+            System.out.println(next.toString());
         }
     }
 

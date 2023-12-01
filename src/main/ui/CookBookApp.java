@@ -1,6 +1,7 @@
 package ui;
 
 import model.Recipe;
+import model.RecipeList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import persistence.JsonWriter;
@@ -21,13 +22,16 @@ import java.util.Scanner;
 public class CookBookApp implements Writable {
     private static final String JSON_STORE = "./data/recipes.json";
 
-    private List<Recipe> recipes;
+    private RecipeList recipeList;
+
     private final Scanner input;
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
     public CookBookApp(Boolean isTestingMode) {
-        this.recipes = new ArrayList<>();
+//        this.recipes = new ArrayList<>();
+        this.recipeList = new RecipeList();
+
         input = new Scanner(System.in);
         input.useDelimiter("\n");
         this.jsonWriter = new JsonWriter(JSON_STORE);
@@ -39,7 +43,8 @@ public class CookBookApp implements Writable {
     }
 
     public List<Recipe> getRecipes() {
-        return recipes;
+        return this.recipeList.getRecipes();
+//        return recipes;
     }
 
     // EFFECTS: allows user to interact with the application
@@ -117,7 +122,7 @@ public class CookBookApp implements Writable {
             jsonWriter.open();
             jsonWriter.write(this.toJson());
             jsonWriter.close();
-            System.out.println("Saved the recipes to " + JSON_STORE);
+//            System.out.println("Saved the recipes to " + JSON_STORE);
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to file: " + JSON_STORE);
         } catch (IOException e) {
@@ -129,8 +134,9 @@ public class CookBookApp implements Writable {
     // EFFECTS: loads workroom from file
     public void loadRecipeList() {
         try {
-            this.recipes.addAll(jsonReader.read());
-            System.out.println("Loaded from " + JSON_STORE);
+//            this.recipes.addAll(jsonReader.read());
+            this.recipeList.addRecipes(jsonReader.read());
+//            System.out.println("Loaded from " + JSON_STORE);
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + JSON_STORE);
         }
@@ -142,12 +148,16 @@ public class CookBookApp implements Writable {
         System.out.println("Enter the ingredients you have\n");
         List<String> availableIngredients = this.getCommaSeparatedInput();
         List<Recipe> possibleRecipes = new ArrayList<>();
-        for (Recipe recipe: this.recipes) {
+//        for (Recipe recipe: this.recipes) {
+//            if (recipe.canMakeRecipeWithGivenIngredients(availableIngredients)) {
+//                possibleRecipes.add(recipe);
+//            }
+//        }
+        for (Recipe recipe: this.recipeList.getRecipes()) {
             if (recipe.canMakeRecipeWithGivenIngredients(availableIngredients)) {
                 possibleRecipes.add(recipe);
             }
         }
-
         System.out.println("You have all the required ingredients for the following recipes:\n");
         for (Recipe recipe: possibleRecipes) {
             System.out.println(recipe.getInfo());
@@ -203,24 +213,19 @@ public class CookBookApp implements Writable {
 
     // EFFECTS: Helper function for addRecipeUi
     public void addRecipe(String name, List<String> directions, String time, List<String> ingList, String category) {
-        Recipe newRecipe = new Recipe(name, directions, time, ingList, category);
-        this.recipes.add(newRecipe);
+//        Recipe newRecipe = new Recipe(name, directions, time, ingList, category);
+        this.recipeList.addRecipe(name, directions, time, ingList, category);
+
+//        this.recipes.add(newRecipe);
     }
 
     public List<Recipe> getEasyRecipes() {
-        List<Recipe> easyRecipes = new ArrayList<>();
-        for (Recipe recipeObj: this.recipes) {
-            if (recipeObj.getDifficultyLevel().equals("EASY")) {
-                easyRecipes.add(recipeObj);
-            }
-        }
-
-        return easyRecipes;
+        return this.recipeList.getEasyRecipes();
     }
 
     // EFFECTS: Fetches the recipe by the recipe name
     public Recipe getRecipeByName(String name) {
-        for (Recipe recipeObj: this.recipes) {
+        for (Recipe recipeObj: this.recipeList.getRecipes()) {
             if (recipeObj.getName().equals(name)) {
                 return recipeObj;
             }
@@ -231,7 +236,7 @@ public class CookBookApp implements Writable {
 
     // EFFECTS: Fetches the recipe by the recipe ID
     public Recipe getRecipeById(int recipeId) {
-        for (Recipe recipeObj: this.recipes) {
+        for (Recipe recipeObj: this.recipeList.getRecipes()) {
             if (recipeObj.getRecipeId() == recipeId) {
                 return recipeObj;
             }
@@ -244,7 +249,7 @@ public class CookBookApp implements Writable {
     public void displayRecipes() {
         System.out.println("RECIPES ARE WRITTEN BELOW\n");
 
-        for (Recipe eachRecipe: this.recipes) {
+        for (Recipe eachRecipe: this.recipeList.getRecipes()) {
             System.out.println(eachRecipe.getInfo());
         }
 
@@ -274,7 +279,9 @@ public class CookBookApp implements Writable {
         System.out.println("Enter the id of the recipe you would like to delete: ");
         String recipeId = this.getInput();
         Recipe recipe = this.getRecipeById(Integer.parseInt(recipeId));
-        this.recipes.remove(recipe);
+        this.recipeList.remove(recipe);
+//        this.recipes.remove(recipe);
+
     }
 
     @Override
@@ -289,7 +296,7 @@ public class CookBookApp implements Writable {
     private JSONArray recipesToJson() {
         JSONArray jsonArray = new JSONArray();
 
-        for (Recipe r : this.recipes) {
+        for (Recipe r : this.recipeList.getRecipes()) {
             jsonArray.put(r.toJson());
         }
 

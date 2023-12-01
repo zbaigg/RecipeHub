@@ -45,3 +45,37 @@ step-by-step instructions*
 - You can locate my visual component by pressing the "Add recipe" button
 - You can save the state of my application by pressing the "Save Recipe" button 
 - You can reload the state of my application by pressing the "Load Recipe" button 
+
+## Phase 4: Task 2
+
+- Fri Dec 01 00:43:13 PST 2023
+- Added a new recipe to the list of recipes
+- Fri Dec 01 00:43:19 PST 2023
+- Added a new recipe to the list of recipes
+- Fri Dec 01 00:43:20 PST 2023
+- Found easy recipes from the list of recipes
+- Fri Dec 01 00:43:31 PST 2023
+- Added a new recipe to the list of recipes
+- Fri Dec 01 00:43:34 PST 2023
+- Found easy recipes from the list of recipes
+- Fri Dec 01 00:43:39 PST 2023
+- Added a new recipe to the list of recipes
+- Fri Dec 01 00:43:40 PST 2023
+- Found easy recipes from the list of recipes
+- Fri Dec 01 00:43:48 PST 2023
+- Added a new recipe to the list of recipes
+
+## Phase 4: Task 3
+
+RecipeList should have been designed using the Singleton design pattern. 
+To do so, I would implement the getInstance method. This will allow the creation of
+only one object of the class. This is essential because RecipeList serves as the local
+application data store, storing all data. Therefore, we aim to have only one object responsible
+for storing all the data to prevent any potential data discrepancies.
+
+Pertaining to the graphical user interface of the application, I 
+would create separate classes for each part of the interface, that
+is the two different panels. Instead of making objects directly from
+the default class, I would extend the JFrame class for each panel class.
+This will allow me to keep all the code for a specific part organized in 
+its own class. This will allow for improved cohesion.
