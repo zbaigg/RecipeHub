@@ -48,22 +48,21 @@ step-by-step instructions*
 
 ## Phase 4: Task 2
 
-- Fri Dec 01 00:43:13 PST 2023
+- Fri Dec 01 01:24:56 PST 2023
 - Added a new recipe to the list of recipes
-- Fri Dec 01 00:43:19 PST 2023
+- Fri Dec 01 01:25:04 PST 2023
 - Added a new recipe to the list of recipes
-- Fri Dec 01 00:43:20 PST 2023
+- Fri Dec 01 01:25:05 PST 2023
 - Found easy recipes from the list of recipes
-- Fri Dec 01 00:43:31 PST 2023
+- Fri Dec 01 01:25:14 PST 2023
 - Added a new recipe to the list of recipes
-- Fri Dec 01 00:43:34 PST 2023
+- Fri Dec 01 01:25:15 PST 2023
 - Found easy recipes from the list of recipes
-- Fri Dec 01 00:43:39 PST 2023
+- Fri Dec 01 01:25:23 PST 2023
 - Added a new recipe to the list of recipes
-- Fri Dec 01 00:43:40 PST 2023
+- Fri Dec 01 01:25:28 PST 2023
 - Found easy recipes from the list of recipes
-- Fri Dec 01 00:43:48 PST 2023
-- Added a new recipe to the list of recipes
+
 
 ## Phase 4: Task 3
 

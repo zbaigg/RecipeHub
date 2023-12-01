@@ -80,7 +80,6 @@ public class MainGUI {
 
     }
 
-
     // EFFECTS: allows user to enter the recipe information
     private void addRecipeForm() {
         recipeNameLabel = new JLabel("What is the name of the recipe?");
@@ -229,7 +228,6 @@ public class MainGUI {
 
     // EFFECTS: adds a recipe to the app
     private void addRecipeToApp(String name, List<String> dir, String time, List<String> ingList, String category) {
-
         app.addRecipe(name, dir, time, ingList, category);
     }
 
@@ -256,7 +254,7 @@ public class MainGUI {
         }
     }
 
-
+    // EFFECTS: prints the log events to the console
     public void printLog(EventLog el) {
         for (Event next : el) {
             System.out.println(next.toString());

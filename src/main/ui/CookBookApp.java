@@ -29,7 +29,6 @@ public class CookBookApp implements Writable {
     private JsonReader jsonReader;
 
     public CookBookApp(Boolean isTestingMode) {
-//        this.recipes = new ArrayList<>();
         this.recipeList = new RecipeList();
 
         input = new Scanner(System.in);
@@ -44,7 +43,6 @@ public class CookBookApp implements Writable {
 
     public List<Recipe> getRecipes() {
         return this.recipeList.getRecipes();
-//        return recipes;
     }
 
     // EFFECTS: allows user to interact with the application
@@ -122,7 +120,6 @@ public class CookBookApp implements Writable {
             jsonWriter.open();
             jsonWriter.write(this.toJson());
             jsonWriter.close();
-//            System.out.println("Saved the recipes to " + JSON_STORE);
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to file: " + JSON_STORE);
         } catch (IOException e) {
@@ -134,9 +131,7 @@ public class CookBookApp implements Writable {
     // EFFECTS: loads workroom from file
     public void loadRecipeList() {
         try {
-//            this.recipes.addAll(jsonReader.read());
             this.recipeList.addRecipes(jsonReader.read());
-//            System.out.println("Loaded from " + JSON_STORE);
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + JSON_STORE);
         }
@@ -148,11 +143,7 @@ public class CookBookApp implements Writable {
         System.out.println("Enter the ingredients you have\n");
         List<String> availableIngredients = this.getCommaSeparatedInput();
         List<Recipe> possibleRecipes = new ArrayList<>();
-//        for (Recipe recipe: this.recipes) {
-//            if (recipe.canMakeRecipeWithGivenIngredients(availableIngredients)) {
-//                possibleRecipes.add(recipe);
-//            }
-//        }
+
         for (Recipe recipe: this.recipeList.getRecipes()) {
             if (recipe.canMakeRecipeWithGivenIngredients(availableIngredients)) {
                 possibleRecipes.add(recipe);
@@ -213,10 +204,7 @@ public class CookBookApp implements Writable {
 
     // EFFECTS: Helper function for addRecipeUi
     public void addRecipe(String name, List<String> directions, String time, List<String> ingList, String category) {
-//        Recipe newRecipe = new Recipe(name, directions, time, ingList, category);
         this.recipeList.addRecipe(name, directions, time, ingList, category);
-
-//        this.recipes.add(newRecipe);
     }
 
     public List<Recipe> getEasyRecipes() {
